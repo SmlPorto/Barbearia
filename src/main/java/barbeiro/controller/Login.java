@@ -39,12 +39,12 @@ public class Login implements Initializable {
             funcionario = funcionarioDao.consultarLogin(textFieldLogin.getText(), passwordFieldSenha.getText());
 
             if (funcionario != null) {
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/Menu.fxml"));
                 Scene scene = new Scene(root);
 
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Dashboard");
+                stage.setTitle("Menu");
                 stage.show();
                 Stage thisStage = (Stage) btnLogin.getScene().getWindow();
                 thisStage.close();

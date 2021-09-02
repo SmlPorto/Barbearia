@@ -48,7 +48,7 @@
                   </Text>
                </children>
             </HBox>
-            <HBox fx:id="btnUsuarios" onMouseClicked="#handleOpenUsuarios" prefHeight="60.0" prefWidth="150.0" style="-fx-alignment: center;" styleClass="dashboard_menu_items">
+            <HBox fx:id="btnFuncionarios" onMouseClicked="#handleOpenFuncionarios" prefHeight="60.0" prefWidth="150.0" style="-fx-alignment: center;" styleClass="dashboard_menu_items">
                <children>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard_menu_items" text="Funcionários" textAlignment="CENTER" wrappingWidth="92.0">
                      <font>

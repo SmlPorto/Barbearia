@@ -28,13 +28,13 @@ public class Menu implements Initializable {
     @FXML
     private HBox btnServicos;
     @FXML
-    private HBox btnUsuarios;
+    private HBox btnFuncionarios;
     @FXML
     private HBox btnSair;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadUI("Clientes");
+        loadUI("Agendamento");
     }
 
     @FXML
@@ -48,13 +48,13 @@ public class Menu implements Initializable {
         loadUI("Agendamento");
     }
     @FXML
-    private void handleOpenUsuarios(MouseEvent event) {
+    private void handleOpenFuncionarios(MouseEvent event) {
          switch (Login.funcionario.getCargo()){
             case 0:
                 JOptionPane.showMessageDialog(null,"Você não possui permissão para acessar esse conteúdo!");
                 break;
             case 1:
-                loadUI("Usuarios");
+                loadUI("Funcionarios");
                 break;
         }
 
@@ -87,15 +87,15 @@ public class Menu implements Initializable {
             case "Agendamento":
                 btnAgendamentos.setStyle("-fx-background-color: #020915; -fx-border-width: 0px 0px 4px 0px;-fx-border-color: #fff;-fx-alignment: center");
                 break;
-            case "Usuarios":
-                btnUsuarios.setStyle("-fx-background-color: #020915; -fx-border-width: 0px 0px 4px 0px;-fx-border-color: #fff;-fx-alignment: center");
+            case "Funcionarios":
+                btnFuncionarios.setStyle("-fx-background-color: #020915; -fx-border-width: 0px 0px 4px 0px;-fx-border-color: #fff;-fx-alignment: center");
                 break;
         }
     }
     private void resetarStyle(){
         btnClientes.setStyle("-fx-alignment: center");
         btnServicos.setStyle("-fx-alignment: center");
-        btnUsuarios.setStyle("-fx-alignment: center");
+        btnFuncionarios.setStyle("-fx-alignment: center");
         btnAgendamentos.setStyle("-fx-alignment: center");
 
     }
