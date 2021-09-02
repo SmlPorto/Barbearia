@@ -49,16 +49,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <HBox layoutX="346.0" layoutY="110.0" style="-fx-alignment: center;" AnchorPane.leftAnchor="346.0">
-         <children>
-            <Text fill="#6b6b6b" strokeType="OUTSIDE" strokeWidth="0.0" text="Modo de exibição:" />
-            <ComboBox fx:id="cbExibicao" onAction="#comboExibicao" prefWidth="150.0">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </ComboBox>
-         </children>
-      </HBox>
       <HBox layoutX="14.0" layoutY="110.0" style="-fx-alignment: center;">
          <children>
             <Text fill="#6b6b6b" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar por:">

@@ -60,9 +60,7 @@ public class ClientesController implements Initializable, ICadastro {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbExibicao.setItems(ComboBoxLists.gerarExibicaoCliente());
         cbPesquisa.setItems(ComboBoxLists.gerarPesquisaCliente());
-        cbExibicao.getSelectionModel().selectFirst();
         cbPesquisa.getSelectionModel().selectFirst();
         criarColunasTabela();
         atualizarTabela();
@@ -88,7 +86,6 @@ public class ClientesController implements Initializable, ICadastro {
         TableColumn<Cliente, String> colunaTelefoneCelular = new TableColumn<>("Telefone celular");
         TableColumn<Cliente, String> colunaTelefoneFixo = new TableColumn<>("Telefone fixo");
 
-        if (cbExibicao.getSelectionModel().getSelectedIndex() == 0) {
             tableView.getColumns().addAll(colunaId, colunaNome, colunaCpf, colunaDataNascimento, colunaCidade, colunaEstado, colunaCodigoPostal, colunaRua,
                     colunaNumero, colunaBairro, colunaComplemento, colunaEmail, colunaTelefoneCelular, colunaTelefoneFixo);
 
@@ -110,40 +107,6 @@ public class ClientesController implements Initializable, ICadastro {
             colunaTelefoneCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContato().getTelefoneCelular()));
             colunaTelefoneFixo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContato().getTelefoneFixo()));
 
-        }
-        if (cbExibicao.getSelectionModel().getSelectedIndex() == 1) {
-            tableView.getColumns().addAll(colunaId, colunaNome, colunaCpf, colunaDataNascimento);
-            colunaId.setCellValueFactory(new PropertyValueFactory("id"));
-            colunaNome.setCellValueFactory(new PropertyValueFactory("nome"));
-            colunaCpf.setCellValueFactory(new PropertyValueFactory("cpf"));
-            colunaDataNascimento.setCellValueFactory(new PropertyValueFactory("dataNascimento"));
-            colunaDataNascimento.setCellFactory(new ColumnFormatter<>(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-        }
-        if (cbExibicao.getSelectionModel().getSelectedIndex() == 2) {
-            tableView.getColumns().addAll(colunaCidade, colunaEstado, colunaCodigoPostal, colunaRua,
-                    colunaNumero, colunaBairro, colunaComplemento);
-            colunaCidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco().getCidade()));
-            colunaEstado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco().getEstado()));
-            colunaCodigoPostal.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getEndereco().getCodigoPostal()).asString());
-            colunaRua.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco().getRua()));
-            colunaNumero.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getEndereco().getNumero()).asString());
-            colunaBairro.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco().getBairro()));
-            colunaComplemento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndereco().getComplemento()));
-
-        }
-        if (cbExibicao.getSelectionModel().getSelectedIndex() == 3) {
-            tableView.getColumns().addAll(colunaEmail, colunaTelefoneCelular, colunaTelefoneFixo);
-            colunaEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContato().getEmail()));
-            colunaTelefoneCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContato().getTelefoneCelular()));
-            colunaTelefoneFixo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContato().getTelefoneFixo()));
-        }
-
-    }
-
-    @FXML
-    public void comboExibicao(ActionEvent event) {
-        criarColunasTabela();
     }
 
     @FXML

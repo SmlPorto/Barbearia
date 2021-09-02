@@ -6,7 +6,6 @@ import barbeiro.model.Cliente;
 import barbeiro.model.Servico;
 import barbeiro.model.Usuario;
 import barbeiro.utils.ColumnFormatter;
-import barbeiro.utils.ComboBoxLists;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -44,35 +42,12 @@ public class AgendamentoController implements Initializable, ICadastro{
     @FXML
     private TableView<Agendamento> tableView;
     @FXML
-    private ComboBox<?> cbPesquisa;
-    @FXML
-    private HBox hBoxPesquisa;
-    @FXML
     private DatePicker datePickerAgendamento;
-    @FXML
-    private Button btnLimpar1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         criarColunasTabela();
         atualizarTabela();
-        gerarCb();
-    }
-    private void gerarCb(){
-        cbPesquisa.setItems(ComboBoxLists.gerarPesquisaAgendamento());
-        cbPesquisa.getSelectionModel().selectFirst();
-    }
-    @FXML
-    private void atualizarAgendamentos(){
-        String res;
-        res = cbPesquisa.getSelectionModel().getSelectedItem().toString();
-        switch (res){
-            case "Data Específica":
-                hBoxPesquisa.setVisible(true);
-                btnLimpar1.setVisible(true);
-                pesquisaSelecionada = 0;
-                break;
-        }
     }
 
     @FXML
