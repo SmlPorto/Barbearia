@@ -102,15 +102,17 @@ public class ControleAgendamento implements Initializable, ICadastro{
         tableView.getColumns().clear();
         TableColumn<Agendamento, Long> colunaId = new TableColumn<>("Id");
         TableColumn<Agendamento,LocalDate> colunaData = new TableColumn<>("Data");
+        TableColumn<Agendamento,LocalTime> colunaTime = new TableColumn<>("Hora");
         TableColumn<Agendamento, String> colunaCliente = new TableColumn<>("Cliente");
         TableColumn<Agendamento, String> colunaUsuario = new TableColumn<>("Funcionário");
         TableColumn<Agendamento, String> colunaServico= new TableColumn<>("Serviço");
         TableColumn<Agendamento, Boolean> colunaPago = new TableColumn<>("Pago");
 
-        tableView.getColumns().addAll(colunaId, colunaData,colunaCliente,colunaUsuario,colunaServico,colunaPago);
+        tableView.getColumns().addAll(colunaId, colunaData, colunaTime, colunaCliente,colunaUsuario,colunaServico,colunaPago);
         colunaId.setCellValueFactory(new PropertyValueFactory("id"));
         colunaData.setCellValueFactory(new PropertyValueFactory("data"));
         colunaData.setCellFactory(new ColumnFormatter<>(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        colunaTime.setCellValueFactory(new PropertyValueFactory("hora"));
         colunaPago.setCellValueFactory(new PropertyValueFactory("pago"));
         colunaUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsuario().getNome()));
         colunaCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCliente().getNome()));
