@@ -1,0 +1,60 @@
+package barbeiro.controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import barbeiro.dao.UsuarioDao;
+import barbeiro.model.Usuario;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import javax.swing.*;
+
+public class LoginController implements Initializable {
+    public static Usuario usuario = new Usuario();
+    UsuarioDao usuarioDao = new UsuarioDao();
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private TextField textFieldLogin;
+    @FXML
+    private PasswordField passwordFieldSenha;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
+    @FXML
+        private void handleLogin(ActionEvent event) throws IOException {
+
+            usuario = usuarioDao.consultarLogin(textFieldLogin.getText(), passwordFieldSenha.getText());
+
+            if (usuario != null) {
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Dashboard");
+                stage.show();
+                Stage thisStage = (Stage) btnLogin.getScene().getWindow();
+                thisStage.close();
+
+            }else{
+                JOptionPane.showMessageDialog(null,"Email ou senha inválidos!");
+            }
+
+        }
+
+    }
+    
+
