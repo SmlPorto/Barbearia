@@ -38,7 +38,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class ClientesController implements Initializable, ICadastro {
+public class ControleClientes implements Initializable, ICadastro {
 
     private ClienteDao clienteDao = new ClienteDao();
     private ContatoDao contatoDao = new ContatoDao();
@@ -184,7 +184,7 @@ public class ClientesController implements Initializable, ICadastro {
         novoCliente.setEndereco(end);
         novoCliente.setContato(con);
 
-        CadastroClientesController.ALTERAR = 0;
+        CadastroClientes.ALTERAR = 0;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroClientes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -199,7 +199,7 @@ public class ClientesController implements Initializable, ICadastro {
     @FXML
     private void alterar(ActionEvent event) throws IOException {
 
-        CadastroClientesController.ALTERAR = 1;
+        CadastroClientes.ALTERAR = 1;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroClientes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();

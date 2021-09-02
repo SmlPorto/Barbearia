@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class DashboardController implements Initializable {
+public class Menu implements Initializable {
     private String selecionado = "";
     @FXML
     private BorderPane mainPane;
@@ -49,7 +49,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void handleOpenUsuarios(MouseEvent event) {
-         switch (LoginController.funcionario.getCargo()){
+         switch (Login.funcionario.getCargo()){
             case 0:
                 JOptionPane.showMessageDialog(null,"Você não possui permissão para acessar esse conteúdo!");
                 break;
@@ -69,7 +69,7 @@ public class DashboardController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource("/fxml/"+ui+".fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         mainPane.setCenter(root);
         selecionado = ui;

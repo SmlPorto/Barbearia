@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class CadastroAgendamentoController implements Initializable {
+public class CadastroAgendamento implements Initializable {
     private AgendamentoDao agendamentooDao = new AgendamentoDao();
     private FuncionarioDao funcionarioDao = new FuncionarioDao();
     private ClienteDao clienteDao = new ClienteDao();
@@ -90,7 +90,7 @@ public class CadastroAgendamentoController implements Initializable {
     }
     private void carregarDados() {
         if (ALTERAR == 1) {
-            Agendamento agendamento = AgendamentoController.agendamentoSelecionado;
+            Agendamento agendamento = ControleAgendamento.agendamentoSelecionado;
             datePickerData.setValue(agendamento.getData());
             timePickerHora.setValue(agendamento.getHora());
             comboBoxFuncionario.getSelectionModel().select(agendamento.getUsuario());
@@ -113,22 +113,22 @@ public class CadastroAgendamentoController implements Initializable {
             JOptionPane.showMessageDialog(null,"Por Favor preencha todos os campos!");
         }else {
             if (ALTERAR == 1) {
-                AgendamentoController.agendamentoSelecionado.setUsuario(comboBoxFuncionario.getValue());
-                AgendamentoController.agendamentoSelecionado.setServico(comboBoxServico.getValue());
-                AgendamentoController.agendamentoSelecionado.setCliente(comboBoxCliente.getValue());
-                AgendamentoController.agendamentoSelecionado.setData(datePickerData.getValue());
-                AgendamentoController.agendamentoSelecionado.setHora(timePickerHora.getValue());
+                ControleAgendamento.agendamentoSelecionado.setUsuario(comboBoxFuncionario.getValue());
+                ControleAgendamento.agendamentoSelecionado.setServico(comboBoxServico.getValue());
+                ControleAgendamento.agendamentoSelecionado.setCliente(comboBoxCliente.getValue());
+                ControleAgendamento.agendamentoSelecionado.setData(datePickerData.getValue());
+                ControleAgendamento.agendamentoSelecionado.setHora(timePickerHora.getValue());
 
                 String res = comboBoxPago.getValue();
                 switch (res){
                     case "Sim":
-                        AgendamentoController.agendamentoSelecionado.setPago(true);
+                        ControleAgendamento.agendamentoSelecionado.setPago(true);
                         break;
                     case "Não":
-                        AgendamentoController.agendamentoSelecionado.setPago(false);
+                        ControleAgendamento.agendamentoSelecionado.setPago(false);
                         break;
                 }
-                agendamentooDao.salvar(AgendamentoController.agendamentoSelecionado);
+                agendamentooDao.salvar(ControleAgendamento.agendamentoSelecionado);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
@@ -137,22 +137,22 @@ public class CadastroAgendamentoController implements Initializable {
             }else{
 
 
-                AgendamentoController.novoAgendamento.setUsuario(comboBoxFuncionario.getValue());
-                AgendamentoController.novoAgendamento.setServico(comboBoxServico.getValue());
-                AgendamentoController.novoAgendamento.setCliente(comboBoxCliente.getValue());
-                AgendamentoController.novoAgendamento.setData(datePickerData.getValue());
-                AgendamentoController.novoAgendamento.setHora(timePickerHora.getValue());
+                ControleAgendamento.novoAgendamento.setUsuario(comboBoxFuncionario.getValue());
+                ControleAgendamento.novoAgendamento.setServico(comboBoxServico.getValue());
+                ControleAgendamento.novoAgendamento.setCliente(comboBoxCliente.getValue());
+                ControleAgendamento.novoAgendamento.setData(datePickerData.getValue());
+                ControleAgendamento.novoAgendamento.setHora(timePickerHora.getValue());
                 String res = comboBoxPago.getValue();
                 switch (res){
                     case "Sim":
-                        AgendamentoController.novoAgendamento.setPago(true);
+                        ControleAgendamento.novoAgendamento.setPago(true);
                         break;
                     case "Não":
-                        AgendamentoController.novoAgendamento.setPago(false);
+                        ControleAgendamento.novoAgendamento.setPago(false);
                         break;
                 }
-                AgendamentoController.novoAgendamento.setDataCadastro(LocalDate.now());
-                agendamentooDao.salvar(AgendamentoController.novoAgendamento);
+                ControleAgendamento.novoAgendamento.setDataCadastro(LocalDate.now());
+                agendamentooDao.salvar(ControleAgendamento.novoAgendamento);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();

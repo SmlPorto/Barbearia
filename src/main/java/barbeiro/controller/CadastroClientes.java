@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class CadastroClientesController implements Initializable {
+public class CadastroClientes implements Initializable {
     private ClienteDao clienteDao = new ClienteDao();
     public static int ALTERAR = 0;
     @FXML
@@ -42,7 +42,7 @@ public class CadastroClientesController implements Initializable {
 
     private void carregarDados() {
         if (ALTERAR == 1) {
-            Cliente cliente = ClientesController.clienteSelecionado;
+            Cliente cliente = ControleClientes.clienteSelecionado;
             textFieldNome.setText(cliente.getNome());
             textFieldCpf.setText(cliente.getCpf());
             datePickerData.setValue(cliente.getDataNascimento());
@@ -86,21 +86,21 @@ public class CadastroClientesController implements Initializable {
             }
         }else {
             if (ALTERAR == 1) {
-                ClientesController.clienteSelecionado.setNome(textFieldNome.getText());
-                ClientesController.clienteSelecionado.setCpf(textFieldCpf.getText());
-                ClientesController.clienteSelecionado.setDataNascimento(datePickerData.getValue());
-                clienteDao.salvar(ClientesController.clienteSelecionado);
+                ControleClientes.clienteSelecionado.setNome(textFieldNome.getText());
+                ControleClientes.clienteSelecionado.setCpf(textFieldCpf.getText());
+                ControleClientes.clienteSelecionado.setDataNascimento(datePickerData.getValue());
+                clienteDao.salvar(ControleClientes.clienteSelecionado);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
                 JOptionPane.showMessageDialog(null,"Cliente atualizado com sucesso!");
             }else{
-                ClientesController.novoCliente.setNome(textFieldNome.getText());
-                ClientesController.novoCliente.setCpf(textFieldCpf.getText());
-                ClientesController.novoCliente.setDataNascimento(datePickerData.getValue());
+                ControleClientes.novoCliente.setNome(textFieldNome.getText());
+                ControleClientes.novoCliente.setCpf(textFieldCpf.getText());
+                ControleClientes.novoCliente.setDataNascimento(datePickerData.getValue());
                 LocalDate date = LocalDate.now();
-                ClientesController.novoCliente.setDataCadastro(date);
-                clienteDao.salvar(ClientesController.novoCliente);
+                ControleClientes.novoCliente.setDataCadastro(date);
+                clienteDao.salvar(ControleClientes.novoCliente);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();

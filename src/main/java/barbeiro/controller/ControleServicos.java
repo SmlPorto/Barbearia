@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class ServicosController implements Initializable, ICadastro {
+public class ControleServicos implements Initializable, ICadastro {
 
     private ServicoDao servicoDao = new ServicoDao();
     private ObservableList<Servico> observableList = FXCollections.observableArrayList();
@@ -49,7 +49,7 @@ public class ServicosController implements Initializable, ICadastro {
         novoServico.setNome("");
         novoServico.setPreco(0.0);
 
-        CadastroServicosController.ALTERAR = 0;
+        CadastroServicos.ALTERAR = 0;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroServicos.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -62,7 +62,7 @@ public class ServicosController implements Initializable, ICadastro {
 
     @FXML
     private void alterar(ActionEvent event) throws IOException {
-        CadastroServicosController.ALTERAR = 1;
+        CadastroServicos.ALTERAR = 1;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroServicos.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();

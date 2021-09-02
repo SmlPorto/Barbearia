@@ -32,7 +32,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AgendamentoController implements Initializable, ICadastro{
+public class ControleAgendamento implements Initializable, ICadastro{
     private AgendamentoDao agendamentoDao = new AgendamentoDao();
     private ObservableList<Agendamento> observableList = FXCollections.observableArrayList();
     private List<Agendamento> listaAgendamentos;
@@ -66,7 +66,7 @@ public class AgendamentoController implements Initializable, ICadastro{
         novoAgendamento.setServico(servico);
 
 
-        CadastroAgendamentoController.ALTERAR = 0;
+        CadastroAgendamento.ALTERAR = 0;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroAgendamento.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -79,7 +79,7 @@ public class AgendamentoController implements Initializable, ICadastro{
 
     @FXML
     private void alterar(ActionEvent event) throws IOException {
-        CadastroAgendamentoController.ALTERAR = 1;
+        CadastroAgendamento.ALTERAR = 1;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastroAgendamento.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();

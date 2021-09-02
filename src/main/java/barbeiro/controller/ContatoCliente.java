@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class ContatoClienteController implements Initializable {
+public class ContatoCliente implements Initializable {
 
     private ContatoDao contatoDao = new ContatoDao();
     @FXML
@@ -40,21 +40,21 @@ public class ContatoClienteController implements Initializable {
             JOptionPane.showMessageDialog(null,"Por favor preencha ao menos um contato!");
 
         }else {
-            if (CadastroClientesController.ALTERAR == 1) {
+            if (CadastroClientes.ALTERAR == 1) {
 
-                ClientesController.clienteSelecionado.getContato().setEmail(TextFieldEmail.getText());
-                ClientesController.clienteSelecionado.getContato().setTelefoneCelular(TextFieldTelefoneC.getText());
-                ClientesController.clienteSelecionado.getContato().setTelefoneFixo(TextFieldTelefoneF.getText());
-                contatoDao.salvar(ClientesController.clienteSelecionado.getContato());
+                ControleClientes.clienteSelecionado.getContato().setEmail(TextFieldEmail.getText());
+                ControleClientes.clienteSelecionado.getContato().setTelefoneCelular(TextFieldTelefoneC.getText());
+                ControleClientes.clienteSelecionado.getContato().setTelefoneFixo(TextFieldTelefoneF.getText());
+                contatoDao.salvar(ControleClientes.clienteSelecionado.getContato());
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
                 JOptionPane.showMessageDialog(null,"Contato atualizado com sucesso!");
 
             } else {
-                ClientesController.novoCliente.getContato().setEmail(TextFieldEmail.getText());
-                ClientesController.novoCliente.getContato().setTelefoneCelular(TextFieldTelefoneC.getText());
-                ClientesController.novoCliente.getContato().setTelefoneFixo(TextFieldTelefoneF.getText());
+                ControleClientes.novoCliente.getContato().setEmail(TextFieldEmail.getText());
+                ControleClientes.novoCliente.getContato().setTelefoneCelular(TextFieldTelefoneC.getText());
+                ControleClientes.novoCliente.getContato().setTelefoneFixo(TextFieldTelefoneF.getText());
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
@@ -65,8 +65,8 @@ public class ContatoClienteController implements Initializable {
     }
 
     private void carregarDados() {
-        if (CadastroClientesController.ALTERAR == 1) {
-            Cliente cliente = ClientesController.clienteSelecionado;
+        if (CadastroClientes.ALTERAR == 1) {
+            Cliente cliente = ControleClientes.clienteSelecionado;
             TextFieldEmail.setText(cliente.getContato().getEmail());
             TextFieldTelefoneC.setText(cliente.getContato().getTelefoneCelular());
             TextFieldTelefoneF.setText(cliente.getContato().getTelefoneFixo());

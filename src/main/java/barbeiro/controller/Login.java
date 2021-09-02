@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class LoginController implements Initializable {
+public class Login implements Initializable {
     public static Funcionario funcionario = new Funcionario();
     FuncionarioDao funcionarioDao = new FuncionarioDao();
     @FXML

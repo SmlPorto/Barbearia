@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class CadastroServicosController implements Initializable {
+public class CadastroServicos implements Initializable {
     private ServicoDao servicoDao = new ServicoDao();
     public static int ALTERAR = 0;
     @FXML
@@ -35,7 +35,7 @@ public class CadastroServicosController implements Initializable {
     }    
     private void carregarDados() {
         if (ALTERAR == 1) {
-            Servico Servico = ServicosController.servicoSelecionado;
+            Servico Servico = ControleServicos.servicoSelecionado;
             textFieldNome.setText(Servico.getNome());
             textFieldPreco.setText(String.valueOf(Servico.getPreco()));
         }
@@ -54,18 +54,18 @@ public class CadastroServicosController implements Initializable {
 
         }else{
             if (ALTERAR == 1) {
-                ServicosController.servicoSelecionado.setNome(textFieldNome.getText());
-                ServicosController.servicoSelecionado.setPreco(Double.parseDouble(textFieldPreco.getText()));
-                servicoDao.salvar(ServicosController.servicoSelecionado);
+                ControleServicos.servicoSelecionado.setNome(textFieldNome.getText());
+                ControleServicos.servicoSelecionado.setPreco(Double.parseDouble(textFieldPreco.getText()));
+                servicoDao.salvar(ControleServicos.servicoSelecionado);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
                 JOptionPane.showMessageDialog(null,"Serviço atualizado com sucesso!");
 
             }else{
-                ServicosController.novoServico.setNome(textFieldNome.getText());
-                ServicosController.novoServico.setPreco(Double.parseDouble(textFieldPreco.getText()));
-                servicoDao.salvar(ServicosController.novoServico);
+                ControleServicos.novoServico.setNome(textFieldNome.getText());
+                ControleServicos.novoServico.setPreco(Double.parseDouble(textFieldPreco.getText()));
+                servicoDao.salvar(ControleServicos.novoServico);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();

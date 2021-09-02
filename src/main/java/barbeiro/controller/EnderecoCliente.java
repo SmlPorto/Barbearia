@@ -1,6 +1,6 @@
 package barbeiro.controller;
 
-import static barbeiro.controller.CadastroClientesController.ALTERAR;
+import static barbeiro.controller.CadastroClientes.ALTERAR;
 
 import barbeiro.dao.EnderecoDao;
 import barbeiro.model.Cliente;
@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class EnderecoClienteController implements Initializable {
+public class EnderecoCliente implements Initializable {
 
     private EnderecoDao enderecoDao = new EnderecoDao();
     @FXML
@@ -48,7 +48,7 @@ public class EnderecoClienteController implements Initializable {
 
     private void carregarDados() {
         if (ALTERAR == 1) {
-            Cliente cliente = ClientesController.clienteSelecionado;
+            Cliente cliente = ControleClientes.clienteSelecionado;
             TextFieldCidade.setText(cliente.getEndereco().getCidade());
             comboBoxEstado.getSelectionModel().select(cliente.getEndereco().getEstado());
             textFieldCodigoPostal.setText(String.valueOf(cliente.getEndereco().getCodigoPostal()));
@@ -68,30 +68,30 @@ public class EnderecoClienteController implements Initializable {
 
         }else {
 
-            if (CadastroClientesController.ALTERAR == 1) {
+            if (CadastroClientes.ALTERAR == 1) {
 
-                ClientesController.clienteSelecionado.getEndereco().setCidade(TextFieldCidade.getText());
-                ClientesController.clienteSelecionado.getEndereco().setEstado(comboBoxEstado.getValue());
-                ClientesController.clienteSelecionado.getEndereco().setCodigoPostal(Integer.parseInt(textFieldCodigoPostal.getText()));
-                ClientesController.clienteSelecionado.getEndereco().setRua(textFIeldRua.getText());
-                ClientesController.clienteSelecionado.getEndereco().setNumero(Integer.parseInt(textFieldNumero.getText()));
-                ClientesController.clienteSelecionado.getEndereco().setBairro(textFieldBairro.getText());
-                ClientesController.clienteSelecionado.getEndereco().setComplemento(textFieldComplemento.getText());
+                ControleClientes.clienteSelecionado.getEndereco().setCidade(TextFieldCidade.getText());
+                ControleClientes.clienteSelecionado.getEndereco().setEstado(comboBoxEstado.getValue());
+                ControleClientes.clienteSelecionado.getEndereco().setCodigoPostal(Integer.parseInt(textFieldCodigoPostal.getText()));
+                ControleClientes.clienteSelecionado.getEndereco().setRua(textFIeldRua.getText());
+                ControleClientes.clienteSelecionado.getEndereco().setNumero(Integer.parseInt(textFieldNumero.getText()));
+                ControleClientes.clienteSelecionado.getEndereco().setBairro(textFieldBairro.getText());
+                ControleClientes.clienteSelecionado.getEndereco().setComplemento(textFieldComplemento.getText());
 
-                enderecoDao.salvar(ClientesController.clienteSelecionado.getEndereco());
+                enderecoDao.salvar(ControleClientes.clienteSelecionado.getEndereco());
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
                 JOptionPane.showMessageDialog(null,"Endereço atualizado com sucesso!");
 
             } else {
-                ClientesController.novoCliente.getEndereco().setCidade(TextFieldCidade.getText());
-                ClientesController.novoCliente.getEndereco().setEstado(comboBoxEstado.getValue());
-                ClientesController.novoCliente.getEndereco().setCodigoPostal(Integer.parseInt(textFieldCodigoPostal.getText()));
-                ClientesController.novoCliente.getEndereco().setRua(textFIeldRua.getText());
-                ClientesController.novoCliente.getEndereco().setNumero(Integer.parseInt(textFieldNumero.getText()));
-                ClientesController.novoCliente.getEndereco().setBairro(textFieldBairro.getText());
-                ClientesController.novoCliente.getEndereco().setComplemento(textFieldComplemento.getText());
+                ControleClientes.novoCliente.getEndereco().setCidade(TextFieldCidade.getText());
+                ControleClientes.novoCliente.getEndereco().setEstado(comboBoxEstado.getValue());
+                ControleClientes.novoCliente.getEndereco().setCodigoPostal(Integer.parseInt(textFieldCodigoPostal.getText()));
+                ControleClientes.novoCliente.getEndereco().setRua(textFIeldRua.getText());
+                ControleClientes.novoCliente.getEndereco().setNumero(Integer.parseInt(textFieldNumero.getText()));
+                ControleClientes.novoCliente.getEndereco().setBairro(textFieldBairro.getText());
+                ControleClientes.novoCliente.getEndereco().setComplemento(textFieldComplemento.getText());
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();

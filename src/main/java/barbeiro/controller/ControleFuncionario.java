@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class FuncionarioController implements Initializable,ICadastro {
+public class ControleFuncionario implements Initializable,ICadastro {
     
     private FuncionarioDao funcionarioDao = new FuncionarioDao();
     private ObservableList<Funcionario> observableList = FXCollections.observableArrayList();
@@ -79,7 +79,7 @@ public class FuncionarioController implements Initializable,ICadastro {
     }
     @FXML
     private void alterar(ActionEvent event) throws IOException {
-        CadastrarFuncionarioController.ALTERAR = 1;
+        CadastroFuncionario.ALTERAR = 1;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastrarUsuarios.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -107,7 +107,7 @@ public class FuncionarioController implements Initializable,ICadastro {
         novoFuncionario.setCargo(0);
         novoFuncionario.setFuncao("");
 
-        CadastrarFuncionarioController.ALTERAR = 0;
+        CadastroFuncionario.ALTERAR = 0;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastrarUsuarios.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();

@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class CadastrarFuncionarioController implements Initializable {
+public class CadastroFuncionario implements Initializable {
     private FuncionarioDao servicoDao = new FuncionarioDao();
     public static int ALTERAR = 0;
 
@@ -47,7 +47,7 @@ public class CadastrarFuncionarioController implements Initializable {
     private void carregarDados() {
 
         if (ALTERAR == 1) {
-            Funcionario funcionario = FuncionarioController.funcionarioSelecionado;
+            Funcionario funcionario = ControleFuncionario.funcionarioSelecionado;
             textFieldNome.setText(funcionario.getNome());
             textFieldCpf.setText(funcionario.getCpf());
             textFieldEmail.setText(funcionario.getEmail());
@@ -77,21 +77,21 @@ public class CadastrarFuncionarioController implements Initializable {
 
         } else {
             if (ALTERAR == 1) {
-                FuncionarioController.funcionarioSelecionado.setNome(textFieldNome.getText());
-                FuncionarioController.funcionarioSelecionado.setCpf(textFieldCpf.getText());
-                FuncionarioController.funcionarioSelecionado.setEmail(textFieldEmail.getText());
-                FuncionarioController.funcionarioSelecionado.setSenha(textFieldSenha.getText());
+                ControleFuncionario.funcionarioSelecionado.setNome(textFieldNome.getText());
+                ControleFuncionario.funcionarioSelecionado.setCpf(textFieldCpf.getText());
+                ControleFuncionario.funcionarioSelecionado.setEmail(textFieldEmail.getText());
+                ControleFuncionario.funcionarioSelecionado.setSenha(textFieldSenha.getText());
                 switch (comboBoxCargo.getValue()) {
                     case "Funcionário":
-                        FuncionarioController.funcionarioSelecionado.setCargo(0);
+                        ControleFuncionario.funcionarioSelecionado.setCargo(0);
                         break;
                     case "Administrador":
-                        FuncionarioController.funcionarioSelecionado.setCargo(1);
+                        ControleFuncionario.funcionarioSelecionado.setCargo(1);
                         break;
                 }
-                FuncionarioController.funcionarioSelecionado.setFuncao(textFieldFuncao.getText());
+                ControleFuncionario.funcionarioSelecionado.setFuncao(textFieldFuncao.getText());
 
-                servicoDao.salvar(FuncionarioController.funcionarioSelecionado);
+                servicoDao.salvar(ControleFuncionario.funcionarioSelecionado);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
@@ -99,20 +99,20 @@ public class CadastrarFuncionarioController implements Initializable {
 
             } else {
 
-                FuncionarioController.novoFuncionario.setNome(textFieldNome.getText());
-                FuncionarioController.novoFuncionario.setCpf(textFieldCpf.getText());
-                FuncionarioController.novoFuncionario.setEmail(textFieldEmail.getText());
-                FuncionarioController.novoFuncionario.setSenha(textFieldSenha.getText());
+                ControleFuncionario.novoFuncionario.setNome(textFieldNome.getText());
+                ControleFuncionario.novoFuncionario.setCpf(textFieldCpf.getText());
+                ControleFuncionario.novoFuncionario.setEmail(textFieldEmail.getText());
+                ControleFuncionario.novoFuncionario.setSenha(textFieldSenha.getText());
                 switch (comboBoxCargo.getValue()) {
                     case "Funcionário":
-                        FuncionarioController.novoFuncionario.setCargo(0);
+                        ControleFuncionario.novoFuncionario.setCargo(0);
                         break;
                     case "Administrador":
-                        FuncionarioController.novoFuncionario.setCargo(1);
+                        ControleFuncionario.novoFuncionario.setCargo(1);
                         break;
                 }
-                FuncionarioController.novoFuncionario.setFuncao(textFieldFuncao.getText());
-                servicoDao.salvar(FuncionarioController.novoFuncionario);
+                ControleFuncionario.novoFuncionario.setFuncao(textFieldFuncao.getText());
+                servicoDao.salvar(ControleFuncionario.novoFuncionario);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
