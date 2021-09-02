@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -120,17 +119,11 @@
                      </children>
                   </HBox>
                   <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #020915;" text="Salvar" textFill="WHITE" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="320.0">
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="SAVE" />
-                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                   <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #3B3D40;" text="Cancelar" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="320.0">
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" />
-                     </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
