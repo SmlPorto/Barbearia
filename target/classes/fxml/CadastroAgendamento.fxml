@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTimePicker?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -11,27 +10,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="282.0" prefWidth="600.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="barbeiro.controller.CadastroAgendamentoController">
+<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="600.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="barbeiro.controller.CadastroAgendamentoController">
     <stylesheets>
         <URL value="@/styles/cadastroclientes.css" />
     </stylesheets>
     <children>
-        <HBox prefHeight="17.0" prefWidth="130.0">
-            <children>
-                <Text fill="#c41a21" strokeType="OUTSIDE" strokeWidth="0.0" text="DETALHES DO AGENDAMENTO">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="30.0" top="20.0" />
-                    </HBox.margin>
-                </Text>
-            </children>
-        </HBox>
-        <VBox layoutY="76.0" prefHeight="320.0" prefWidth="600.0" style="-fx-alignment: center-rigth; -fx-background-color: #f4f4f4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
+        <HBox prefHeight="17.0" prefWidth="130.0" />
+        <VBox prefHeight="317.0" prefWidth="600.0" style="-fx-alignment: center-rigth; -fx-background-color: #f4f4f4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox style="-fx-alignment: center-left;">
                <children>
@@ -137,18 +124,12 @@
             </HBox>
          </children>
         </VBox>
-        <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #27ae60;" text="Salvar" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="130.0">
-            <graphic>
-                <FontAwesomeIconView fill="WHITE" glyphName="SAVE" />
-            </graphic>
+        <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#salvar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #020915;" text="Salvar" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="130.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="btnCancelar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #95a5a6;" text="Cancelar" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
-            <graphic>
-                <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" />
-            </graphic>
+        <Button fx:id="btnCancelar" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #3B3D40;" text="Cancelar" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
