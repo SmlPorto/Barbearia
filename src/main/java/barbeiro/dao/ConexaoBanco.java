@@ -24,7 +24,7 @@ public class ConexaoBanco {
         configuracao.addPackage("barbeiro.model").addAnnotatedClass(Endereco.class);
         configuracao.addPackage("barbeiro.model").addAnnotatedClass(Contato.class);
         configuracao.addPackage("barbeiro.model").addAnnotatedClass(Servico.class);
-        configuracao.addPackage("barbeiro.model").addAnnotatedClass(Usuario.class);
+        configuracao.addPackage("barbeiro.model").addAnnotatedClass(Funcionario.class);
         configuracao.addPackage("barbeiro.model").addAnnotatedClass(Agendamento.class);
 
         conexao = configuracao.buildSessionFactory();

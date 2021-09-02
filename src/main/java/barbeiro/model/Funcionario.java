@@ -13,8 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "Funcionario")
+public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

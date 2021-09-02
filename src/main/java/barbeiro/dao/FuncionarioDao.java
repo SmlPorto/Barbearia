@@ -5,17 +5,17 @@
  */
 package barbeiro.dao;
 
-import barbeiro.model.Usuario;
+import barbeiro.model.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 
-public class UsuarioDao {
-    public void salvar(Usuario usuario) {
+public class FuncionarioDao {
+    public void salvar(Funcionario funcionario) {
         try {
             Session session = ConexaoBanco.getSessionFactory().openSession();
             session.beginTransaction();
-            session.merge(usuario);
+            session.merge(funcionario);
             session.getTransaction().commit();
             session.close();
             System.out.println("Registro gravado/alterado com sucesso");
@@ -24,33 +24,33 @@ public class UsuarioDao {
         }
     }
     
-    public List<Usuario> consultar(String nome) {
-        List<Usuario> lista = new ArrayList<>();
+    public List<Funcionario> consultar(String nome) {
+        List<Funcionario> lista = new ArrayList<>();
         Session session = ConexaoBanco.getSessionFactory().openSession();
         session.beginTransaction();
         if (nome.length() == 0) {
-            lista = session.createQuery("from Usuario").getResultList();
+            lista = session.createQuery("from Funcionario").getResultList();
         } else {
-            lista = session.createQuery("from Usuario where usu_nome like" + "'" + nome + "%'").getResultList();
+            lista = session.createQuery("from Funcionario where usu_nome like" + "'" + nome + "%'").getResultList();
         }
         session.getTransaction().commit();
         session.close();
         return lista;
     }
 
-    public Usuario consultarLogin (String email, String senha) {
-        Usuario user = new Usuario();
+    public Funcionario consultarLogin (String email, String senha) {
+        Funcionario user = new Funcionario();
         Session session = ConexaoBanco.getSessionFactory().openSession();
         session.beginTransaction();
-        user = ((Usuario) session.createQuery("from Usuario where usu_email = " + "'" + email + "'" + "and senha =" + "'" + senha + "'").uniqueResult());
+        user = ((Funcionario) session.createQuery("from Funcionario where usu_email = " + "'" + email + "'" + "and senha =" + "'" + senha + "'").uniqueResult());
 
         return user;
     }
     
-    public void excluir(Usuario usuario){
+    public void excluir(Funcionario funcionario){
         try (Session session = ConexaoBanco.getSessionFactory().openSession()) {
             session.beginTransaction();
-            session.delete(usuario);
+            session.delete(funcionario);
             session.getTransaction().commit();
             session.close();
         }catch(Exception ex){

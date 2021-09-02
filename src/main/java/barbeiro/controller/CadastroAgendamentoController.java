@@ -3,11 +3,11 @@ package barbeiro.controller;
 import barbeiro.dao.AgendamentoDao;
 import barbeiro.dao.ClienteDao;
 import barbeiro.dao.ServicoDao;
-import barbeiro.dao.UsuarioDao;
+import barbeiro.dao.FuncionarioDao;
 import barbeiro.model.Agendamento;
 import barbeiro.model.Cliente;
 import barbeiro.model.Servico;
-import barbeiro.model.Usuario;
+import barbeiro.model.Funcionario;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -30,7 +30,7 @@ import javax.swing.*;
 
 public class CadastroAgendamentoController implements Initializable {
     private AgendamentoDao agendamentooDao = new AgendamentoDao();
-    private UsuarioDao usuarioDao = new UsuarioDao();
+    private FuncionarioDao funcionarioDao = new FuncionarioDao();
     private ClienteDao clienteDao = new ClienteDao();
     private ServicoDao servicoDao = new ServicoDao();
     public static int ALTERAR = 0;
@@ -41,7 +41,7 @@ public class CadastroAgendamentoController implements Initializable {
     @FXML
     private DatePicker datePickerData;
     @FXML
-    private ComboBox<Usuario> comboBoxFuncionario;
+    private ComboBox<Funcionario> comboBoxFuncionario;
     @FXML
     private ComboBox<Cliente> comboBoxCliente;
     @FXML
@@ -65,9 +65,9 @@ public class CadastroAgendamentoController implements Initializable {
     }
 
     private void carregarUsuarios(){
-        List<Usuario> usuarios = usuarioDao.consultar("");
-        ObservableList<Usuario> usuariosObs = FXCollections.observableArrayList();
-        for(Usuario u:usuarios){
+        List<Funcionario> funcionarios = funcionarioDao.consultar("");
+        ObservableList<Funcionario> usuariosObs = FXCollections.observableArrayList();
+        for(Funcionario u: funcionarios){
             usuariosObs.add(u);
         }
         comboBoxFuncionario.setItems(usuariosObs);

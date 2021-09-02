@@ -19,7 +19,7 @@ public class Agendamento implements Serializable {
     private boolean pago;
     @OneToOne
     @JoinColumn(name = "usu_id",nullable = false)
-    private Usuario usuario;
+    private Funcionario funcionario;
     @OneToOne
     @JoinColumn(name = "cli_id",nullable = false)
     private Cliente cliente;
@@ -53,12 +53,12 @@ public class Agendamento implements Serializable {
         this.pago = pago;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Funcionario getUsuario() {
+        return funcionario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     public Servico getServico() {

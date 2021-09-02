@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import barbeiro.dao.UsuarioDao;
-import barbeiro.model.Usuario;
+import barbeiro.dao.FuncionarioDao;
+import barbeiro.model.Funcionario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +20,8 @@ import javafx.stage.Stage;
 import javax.swing.*;
 
 public class LoginController implements Initializable {
-    public static Usuario usuario = new Usuario();
-    UsuarioDao usuarioDao = new UsuarioDao();
+    public static Funcionario funcionario = new Funcionario();
+    FuncionarioDao funcionarioDao = new FuncionarioDao();
     @FXML
     private Button btnLogin;
     @FXML
@@ -36,9 +36,9 @@ public class LoginController implements Initializable {
     @FXML
         private void handleLogin(ActionEvent event) throws IOException {
 
-            usuario = usuarioDao.consultarLogin(textFieldLogin.getText(), passwordFieldSenha.getText());
+            funcionario = funcionarioDao.consultarLogin(textFieldLogin.getText(), passwordFieldSenha.getText());
 
-            if (usuario != null) {
+            if (funcionario != null) {
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/Dashboard.fxml"));
                 Scene scene = new Scene(root);
 

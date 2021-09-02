@@ -49,7 +49,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void handleOpenUsuarios(MouseEvent event) {
-         switch (LoginController.usuario.getCargo()){
+         switch (LoginController.funcionario.getCargo()){
             case 0:
                 JOptionPane.showMessageDialog(null,"Você não possui permissão para acessar esse conteúdo!");
                 break;

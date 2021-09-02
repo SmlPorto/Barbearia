@@ -1,7 +1,7 @@
 package barbeiro.controller;
 
-import barbeiro.dao.UsuarioDao;
-import barbeiro.model.Usuario;
+import barbeiro.dao.FuncionarioDao;
+import barbeiro.model.Funcionario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +17,8 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class CadastrarUsuariosController implements Initializable {
-    private UsuarioDao servicoDao = new UsuarioDao();
+public class CadastrarFuncionarioController implements Initializable {
+    private FuncionarioDao servicoDao = new FuncionarioDao();
     public static int ALTERAR = 0;
 
     @FXML
@@ -47,12 +47,12 @@ public class CadastrarUsuariosController implements Initializable {
     private void carregarDados() {
 
         if (ALTERAR == 1) {
-            Usuario usuario = UsuariosController.UsuarioSelecionado;
-            textFieldNome.setText(usuario.getNome());
-            textFieldCpf.setText(usuario.getCpf());
-            textFieldEmail.setText(usuario.getEmail());
-            textFieldSenha.setText(usuario.getSenha());
-            switch (usuario.getCargo()) {
+            Funcionario funcionario = FuncionarioController.funcionarioSelecionado;
+            textFieldNome.setText(funcionario.getNome());
+            textFieldCpf.setText(funcionario.getCpf());
+            textFieldEmail.setText(funcionario.getEmail());
+            textFieldSenha.setText(funcionario.getSenha());
+            switch (funcionario.getCargo()) {
                 case 0:
                     comboBoxCargo.getSelectionModel().select("Funcionário");
                     break;
@@ -60,7 +60,7 @@ public class CadastrarUsuariosController implements Initializable {
                     comboBoxCargo.getSelectionModel().select("Administrador");
                     break;
             }
-            textFieldFuncao.setText(usuario.getFuncao());
+            textFieldFuncao.setText(funcionario.getFuncao());
         }
     }
 
@@ -77,21 +77,21 @@ public class CadastrarUsuariosController implements Initializable {
 
         } else {
             if (ALTERAR == 1) {
-                UsuariosController.UsuarioSelecionado.setNome(textFieldNome.getText());
-                UsuariosController.UsuarioSelecionado.setCpf(textFieldCpf.getText());
-                UsuariosController.UsuarioSelecionado.setEmail(textFieldEmail.getText());
-                UsuariosController.UsuarioSelecionado.setSenha(textFieldSenha.getText());
+                FuncionarioController.funcionarioSelecionado.setNome(textFieldNome.getText());
+                FuncionarioController.funcionarioSelecionado.setCpf(textFieldCpf.getText());
+                FuncionarioController.funcionarioSelecionado.setEmail(textFieldEmail.getText());
+                FuncionarioController.funcionarioSelecionado.setSenha(textFieldSenha.getText());
                 switch (comboBoxCargo.getValue()) {
                     case "Funcionário":
-                        UsuariosController.UsuarioSelecionado.setCargo(0);
+                        FuncionarioController.funcionarioSelecionado.setCargo(0);
                         break;
                     case "Administrador":
-                        UsuariosController.UsuarioSelecionado.setCargo(1);
+                        FuncionarioController.funcionarioSelecionado.setCargo(1);
                         break;
                 }
-                UsuariosController.UsuarioSelecionado.setFuncao(textFieldFuncao.getText());
+                FuncionarioController.funcionarioSelecionado.setFuncao(textFieldFuncao.getText());
 
-                servicoDao.salvar(UsuariosController.UsuarioSelecionado);
+                servicoDao.salvar(FuncionarioController.funcionarioSelecionado);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();
@@ -99,20 +99,20 @@ public class CadastrarUsuariosController implements Initializable {
 
             } else {
 
-                UsuariosController.novoUsuario.setNome(textFieldNome.getText());
-                UsuariosController.novoUsuario.setCpf(textFieldCpf.getText());
-                UsuariosController.novoUsuario.setEmail(textFieldEmail.getText());
-                UsuariosController.novoUsuario.setSenha(textFieldSenha.getText());
+                FuncionarioController.novoFuncionario.setNome(textFieldNome.getText());
+                FuncionarioController.novoFuncionario.setCpf(textFieldCpf.getText());
+                FuncionarioController.novoFuncionario.setEmail(textFieldEmail.getText());
+                FuncionarioController.novoFuncionario.setSenha(textFieldSenha.getText());
                 switch (comboBoxCargo.getValue()) {
                     case "Funcionário":
-                        UsuariosController.novoUsuario.setCargo(0);
+                        FuncionarioController.novoFuncionario.setCargo(0);
                         break;
                     case "Administrador":
-                        UsuariosController.novoUsuario.setCargo(1);
+                        FuncionarioController.novoFuncionario.setCargo(1);
                         break;
                 }
-                UsuariosController.novoUsuario.setFuncao(textFieldFuncao.getText());
-                servicoDao.salvar(UsuariosController.novoUsuario);
+                FuncionarioController.novoFuncionario.setFuncao(textFieldFuncao.getText());
+                servicoDao.salvar(FuncionarioController.novoFuncionario);
 
                 Stage thisStage = (Stage) btnSalvar.getScene().getWindow();
                 thisStage.close();

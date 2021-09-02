@@ -4,7 +4,7 @@ import barbeiro.dao.AgendamentoDao;
 import barbeiro.model.Agendamento;
 import barbeiro.model.Cliente;
 import barbeiro.model.Servico;
-import barbeiro.model.Usuario;
+import barbeiro.model.Funcionario;
 import barbeiro.utils.ColumnFormatter;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -60,8 +60,8 @@ public class AgendamentoController implements Initializable, ICadastro{
         novoAgendamento.setHora(hora);
         Servico servico = new Servico();
         Cliente cliente = new Cliente();
-        Usuario usuario = new Usuario();
-        novoAgendamento.setUsuario(usuario);
+        Funcionario funcionario = new Funcionario();
+        novoAgendamento.setUsuario(funcionario);
         novoAgendamento.setCliente(cliente);
         novoAgendamento.setServico(servico);
 
