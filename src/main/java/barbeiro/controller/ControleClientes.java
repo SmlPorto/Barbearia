@@ -38,7 +38,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class ControleClientes implements Initializable, ICadastro {
+public class ControleClientes implements Initializable, Cadastro {
 
     private ClienteDao clienteDao = new ClienteDao();
     private ContatoDao contatoDao = new ContatoDao();

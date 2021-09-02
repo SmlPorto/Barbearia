@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class ControleFuncionario implements Initializable,ICadastro {
+public class ControleFuncionario implements Initializable, Cadastro {
     
     private FuncionarioDao funcionarioDao = new FuncionarioDao();
     private ObservableList<Funcionario> observableList = FXCollections.observableArrayList();

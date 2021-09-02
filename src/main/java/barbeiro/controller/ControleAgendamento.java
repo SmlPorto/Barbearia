@@ -32,7 +32,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControleAgendamento implements Initializable, ICadastro{
+public class ControleAgendamento implements Initializable, Cadastro {
     private AgendamentoDao agendamentoDao = new AgendamentoDao();
     private ObservableList<Agendamento> observableList = FXCollections.observableArrayList();
     private List<Agendamento> listaAgendamentos;

@@ -1,6 +1,6 @@
 package barbeiro.controller;
 
-public interface ICadastro {
+public interface Cadastro {
     public abstract void criarColunasTabela();
     public abstract void atualizarTabela();
     public abstract void setCamposFormulario();
